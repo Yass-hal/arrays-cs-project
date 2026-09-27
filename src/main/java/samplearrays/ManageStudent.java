@@ -73,7 +73,17 @@ public class ManageStudent {
 
     // 9) Find Duplicate Names
     public static boolean hasDuplicateNames(Student[] students) {
+        for (int i=0;i<students.length-1;i++){
+            String nameCheck=students[i].getName();
+            for (int j=i+1;j<students.length;j++){
+                if (students[j].getName().equals(nameCheck)){
+                    System.out.println("Duplicates found");
+                    return true;
 
+                }
+            }
+        }
+        return false;
     }
 
     // 10) Expandable Array: return a new array with one more slot and append student
