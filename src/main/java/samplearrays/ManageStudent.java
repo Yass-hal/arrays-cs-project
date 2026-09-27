@@ -88,24 +88,30 @@ public class ManageStudent {
 
     // 10) Expandable Array: return a new array with one more slot and append student
     public static Student[] appendStudent(Student[] students, Student newStudent) {
-
+        Student [] newStudents=new Student[students.length+1];
+        for (int i=0;i<students.length;i++){
+            newStudents[i]=students[i];
+        }
+        newStudents[newStudents.length-1]=newStudent;
+        return newStudents;
     }
 
     // 1) Create an Array of Students + demos for all tasks
     public static void main(String[] args) {
         // Create & initialize array of 5 students
         Student [] arr=new Student[5];
-        arr[0]=new Student(1,"Yasser",19);
-        arr[1]=new Student(2,"Sarah",19,20);
+        arr[0]=new Student(1,"Yasser",19,16);
+        arr[1]=new Student(2,"Sarah",19,19);
         arr[2]=new Student(3,"Mohammed",19,18);
-        arr[3]=new Student(4,"Mehdi");
-        arr[4]=new Student(5,"Amine",20);
+        arr[3]=new Student(4,"Mehdi",19,20);
+        arr[4]=new Student(5,"Amine",20,20);
         // Print all
         System.out.println("== All Students ==");
         for (Student s : arr) System.out.println(s);
         System.out.println("Total created: " + Student.getNumStudent());
 
         // 2) Oldest
+
 
 
         // 3) Count adults
@@ -136,6 +142,31 @@ public class ManageStudent {
 
         // 10) Append new student
 
+        // 11)
+        Student [][] array2d=new Student[2][3];
+        array2d[0][0]=arr[0];
+        array2d[0][1]=arr[1];
+        array2d[0][2]=arr[2];
+        array2d[1][0]=arr[3];
+        array2d[1][1]=arr[4];
+        array2d[1][2]=new Student(6,"kenza",20,17);
+
+        for (int i=0;i<array2d.length;i++){
+            System.out.println("Class : "+ (i+1));
+            for (int j=0;j<array2d[i].length;j++){
+                System.out.println(array2d[i][j].getName());
+            }
+        }
+        for (int i=0;i<array2d.length;i++){
+            System.out.println("Top student in class : "+(i+1));
+            Student topStudent=array2d[i][0];
+            for (int j=0;j<array2d[i].length;j++){
+                if (array2d[i][j].getGrade()>topStudent.getGrade()){
+                    topStudent=array2d[i][j];
+                }
+            }
+            System.out.println(topStudent.getName());
+        }
     }
 }
 
