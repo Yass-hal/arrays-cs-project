@@ -7,23 +7,43 @@ public class ManageStudent {
 
     // 2) Find the Oldest Student
     public static Student findOldest(Student[] students) {
-
+        Student oldest=students[0];
+        for (Student s:students){
+            if (s.getAge()>oldest.getAge()){
+                oldest=s;
+            }
+        }
         return oldest;
     }
 
     // 3) Count Adult Students (age >= 18)
     public static int countAdults(Student[] students) {
-
+        int numberOfAdults=0;
+        for(Student s:students){
+            if (s.isAdult()){
+                numberOfAdults++;
+            }
+        }
+        return numberOfAdults;
     }
 
     // 4) Average Grade (returns NaN if no students or grades)
     public static double averageGrade(Student[] students) {
-
+        int sumOfGrades=0;
+        for (Student s:students){
+            sumOfGrades+=s.getGrade();
+        }
+        return (double)sumOfGrades/students.length;
     }
 
     // 5) Search by Name (case-sensitive; change to equalsIgnoreCase if desired)
     public static Student findStudentByName(Student[] students, String name) {
-
+        for(Student s:students){
+            if (s.getName().equals(name)){
+                return s;
+            }
+        }
+        return null;
     }
 
     // 6) Sort Students by Grade (descending)
@@ -54,8 +74,12 @@ public class ManageStudent {
     // 1) Create an Array of Students + demos for all tasks
     public static void main(String[] args) {
         // Create & initialize array of 5 students
-
-
+        Student [] arr=new Student[5];
+        arr[0]=new Student(1,"Yasser",19);
+        arr[1]=new Student(2,"Sarah",19,20);
+        arr[2]=new Student(3,"Mohammed",19,18);
+        arr[3]=new Student(4,"Mehdi");
+        arr[4]=new Student(5,"Amine",20);
         // Print all
         System.out.println("== All Students ==");
         for (Student s : arr) System.out.println(s);
