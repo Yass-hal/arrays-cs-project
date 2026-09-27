@@ -111,37 +111,39 @@ public class ManageStudent {
         System.out.println("Total created: " + Student.getNumStudent());
 
         // 2) Oldest
-
-
+        System.out.println(ManageStudent.findOldest(arr));
 
         // 3) Count adults
-
+        System.out.println(ManageStudent.countAdults(arr));
 
         // 4) Average grade
-
+        System.out.println(ManageStudent.averageGrade(arr));
 
         // 5) Find by name
-
+        System.out.println(ManageStudent.findStudentByName(arr,"Sarah"));
 
         // 6) Sort by grade desc
         // sort function
+        ManageStudent.sortByGradeDesc(arr);
         System.out.println("\n== Sorted by grade (desc) ==");
         for (Student s : arr) System.out.println(s);
 
         // 7) High achievers >= 15
         System.out.println("\nHigh achievers:");
-        printHighAchievers(arr);
+        ManageStudent.printHighAchievers(arr);
 
         // 8) Update grade by id
+        boolean updated=ManageStudent.updateGrade(arr,4,17);
         // function
         System.out.println("\nUpdated id=4? " + updated);
         System.out.println(findStudentByName(arr, "Dina"));
 
         // 9) Duplicate names
-
+        System.out.println(ManageStudent.hasDuplicateNames(arr));
 
         // 10) Append new student
-
+        Student [] newStudent=ManageStudent.appendStudent(arr,new Student(7,"Hiba",19,16));
+        for (Student s : newStudent) System.out.println(s);
         // 11)
         Student [][] array2d=new Student[2][3];
         array2d[0][0]=arr[0];
